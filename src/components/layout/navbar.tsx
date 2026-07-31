@@ -15,11 +15,12 @@ import {
   LayoutDashboard,
   Info,
   Mail,
+  Home,
 } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 
 const navLinks = [
-  { href: "/", label: "Home" },
+  { href: "/", label: "Home", icon: Home },
   { href: "/opportunities", label: "Opportunities", icon: Briefcase },
   { href: "/saved", label: "Saved", icon: Heart },
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -51,10 +52,10 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-gray-200/60 dark:border-slate-800/60 transition-colors duration-300 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo - سمت چپ */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 rounded-xl"
+            className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 rounded-xl flex-shrink-0"
           >
             <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/25 group-hover:scale-105 transition-transform duration-200">
               <Briefcase className="w-5 h-5 text-white" />
@@ -64,42 +65,46 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
-              const Icon = link.icon;
+          {/* Desktop Navigation - وسط */}
+          <div className="hidden md:flex items-center justify-center flex-1 mx-4">
+            <div className="flex items-center gap-1">
+              {navLinks.map((link) => {
+                const isActive =
+                  link.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(link.href);
+                const Icon = link.icon;
 
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-200 flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
-                    isActive
-                      ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/60 font-semibold"
-                      : "text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/60"
-                  }`}
-                >
-                  {Icon && <Icon className="w-4 h-4" />}
-                  <span className="hidden lg:inline">{link.label}</span>
-                  {isActive && (
-                    <motion.div
-                      layoutId="nav-indicator"
-                      className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary-500 dark:bg-primary-400 rounded-full"
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`relative px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-200 flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
+                      isActive
+                        ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/60 font-semibold"
+                        : "text-gray-600 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-800/60"
+                    }`}
+                  >
+                    {Icon && <Icon className="w-4 h-4" />}
+                    <span className="hidden lg:inline">{link.label}</span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="nav-indicator"
+                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary-500 dark:bg-primary-400 rounded-full"
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                  </Link>);
+              })}
+            </div>
+          </div>
 
-            {/* Desktop Theme Toggle */}
+          {/* Desktop Theme Toggle - سمت راست */}
+          <div className="hidden md:flex items-center flex-shrink-0">
             {mounted && (
               <button
-                onClick={toggleTheme}className="ml-2 p-2.5 rounded-xl text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all duration-200 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+                onClick={toggleTheme}
+                className="p-2.5 rounded-xl text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all duration-200 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
                 aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
                 title={isDark ? "Switch to light mode" : "Switch to dark mode"}
               >
