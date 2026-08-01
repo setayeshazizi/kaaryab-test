@@ -92,7 +92,7 @@ export default function ContactPage() {
                 transition={{ delay: i * 0.1 }}
                 className="flex items-start gap-4 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-5 shadow-lg hover:shadow-xl transition-all"
               >
-                <div className={`w-10 h-10 ${item.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                <div className={`w-10 h-10 ${item.color} rounded-xl flex items-center justify-center shrink-0`}>
                   <item.icon className="w-5 h-5" />
                 </div>
                 <div>

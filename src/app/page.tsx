@@ -10,9 +10,7 @@ import {
   ArrowRight,
   TrendingUp,
   Users,
-  Zap,
   Star,
-  Sparkles,
 } from "lucide-react";
 import { useOpportunityStore } from "@/store/opportunity-store";
 
@@ -54,7 +52,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-950">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 text-white">
+      <section className="relative overflow-hidden bg-linear-to-br from-primary-600 via-primary-700 to-primary-900 text-white">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-40" />
         
@@ -84,7 +82,7 @@ export default function HomePage() {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               Find Your Next
               <br />
-              <span className="bg-gradient-to-r from-yellow-300 via-orange-300 to-yellow-300 bg-clip-text text-transparent animate-pulse">
+              <span className="bg-linear-to-r from-yellow-300 via-orange-300 to-yellow-300 bg-clip-text text-transparent animate-pulse">
                 Big Opportunity
               </span>
             </h1>
@@ -128,7 +126,7 @@ export default function HomePage() {
         </div>
 
         {/* Wave */}
-        <div className="absolute bottom-0 left-0 right-0 leading-[0]">
+        <div className="absolute bottom-0 left-0 right-0 leading-0">
           <svg
             className="block w-full"
             viewBox="0 0 1440 100"
@@ -145,7 +143,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section - فاصله بیشتر از موج و حذف خط */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 -mt-[1px] relative z-10">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 -mt-px relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {statCards.map((stat, i) => (
             <motion.div
@@ -217,7 +215,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
+      <section className="bg-linear-to-r from-primary-600 to-primary-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Have an Opportunity to Share?

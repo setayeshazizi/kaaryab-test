@@ -112,7 +112,7 @@ export default function OpportunityDetailsPage() {
                 {opportunity.category}
               </span>
               {opportunity.isFeatured && (
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-400 to-orange-400 text-white">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-linear-to-r from-yellow-400 to-orange-400 text-white">
                   ⭐ Featured
                 </span>
               )}
@@ -239,7 +239,7 @@ export default function OpportunityDetailsPage() {
                   transition={{ delay: 0.2 + i * 0.05 }}
                   className="flex items-start gap-3 text-gray-600 dark:text-gray-400"
                 >
-                  <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 shrink-0" />
                   {req}
                 </motion.li>
               ))}

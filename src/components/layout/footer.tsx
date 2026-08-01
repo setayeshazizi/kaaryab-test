@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Briefcase, Heart, MapPin, Mail, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Briefcase, MapPin, Mail, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,10 +19,10 @@ export default function Footer() {
           {/* Brand - 2 cols on desktop */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/25">
+              <div className="w-10 h-10 bg-linear-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center shadow-lg shadow-primary-500/25">
                 <Briefcase className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-extrabold bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-400 dark:to-primary-300 bg-clip-text text-transparent">
+              <span className="text-xl font-extrabold bg-linear-to-r from-primary-600 to-primary-800 dark:from-primary-400 dark:to-primary-300 bg-clip-text text-transparent">
                 KaarYab
               </span>
             </div>
@@ -131,7 +131,7 @@ export default function Footer() {
               onClick={scrollToTop}
               className="mt-6 hidden lg:inline-flex items-center gap-2 text-xs text-gray-400 dark:text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
-              <ArrowUpRight className="w-3 h-3 rotate-[-45deg]" />
+              <ArrowUpRight className="w-3 h-3 -rotate-45" />
               Back to top
             </button>
           </div>

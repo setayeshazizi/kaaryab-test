@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Target, Users, Lightbulb, Heart, Globe, Info } from 'lucide-react';
+import { Target, Users, Lightbulb, Globe, Info } from 'lucide-react';
 
 const values = [
   {
@@ -34,7 +34,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-950">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 text-white py-20">
+      <section className="relative overflow-hidden bg-linear-to-br from-primary-600 via-primary-700 to-primary-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -53,7 +53,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
         {/* Wave - بدون هیچ فاصله */}
-        <div className="absolute bottom-0 left-0 right-0 leading-[0]">
+        <div className="absolute bottom-0 left-0 right-0 leading-0">
           <svg className="block w-full" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 50C240 100 480 0 720 50C960 100 1200 0 1440 50V100H0V50Z" fill="currentColor" className="text-gray-50 dark:text-slate-950" />
           </svg>
@@ -61,7 +61,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values - دقیقاً چسبیده به موج */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 -mt-[1px]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 -mt-px">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Values</h2>
           <p className="text-gray-500 dark:text-gray-400 text-lg">What drives us every day</p>
@@ -77,7 +77,7 @@ export default function AboutPage() {
               className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-8 shadow-lg hover:shadow-xl transition-all"
             >
               <div className="flex items-start gap-4">
-                <div className={`w-12 h-12 ${value.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                <div className={`w-12 h-12 ${value.color} rounded-xl flex items-center justify-center shrink-0`}>
                   <value.icon className="w-6 h-6 text-white" />
                 </div>
                 <div>
