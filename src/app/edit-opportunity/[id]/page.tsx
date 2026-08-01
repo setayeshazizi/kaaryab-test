@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Save, ArrowLeft, Pencil } from "lucide-react";
 import { useOpportunityStore } from "@/store/opportunity-store";
+import { OpportunityFormData } from "@/types/opportunity";
 import { toast } from "sonner";
 import Link from "next/link";
 
@@ -20,7 +21,7 @@ export default function EditOpportunityPage() {
     (state) => state.updateOpportunity
   );
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<OpportunityFormData>({
     title: "",
     organization: "",
     category: "Job" as const,
@@ -38,18 +39,22 @@ export default function EditOpportunityPage() {
 
   useEffect(() => {
     if (opportunity) {
-      setFormData({
-        title: opportunity.title,
-        organization: opportunity.organization,
-        category: opportunity.category,
-        location: opportunity.location,
-        type: opportunity.type,
-        deadline: opportunity.deadline,
-        description: opportunity.description,
-        requirements: opportunity.requirements.join("\n"),
-        applyLink: opportunity.applyLink,
-        tags: opportunity.tags.join(", "),
+      const frame = requestAnimationFrame(() => {
+        setFormData({
+          title: opportunity.title,
+          organization: opportunity.organization,
+          category: opportunity.category,
+          location: opportunity.location,
+          type: opportunity.type,
+          deadline: opportunity.deadline,
+          description: opportunity.description,
+          requirements: opportunity.requirements.join("\n"),
+          applyLink: opportunity.applyLink,
+          tags: opportunity.tags.join(", "),
+        });
       });
+
+      return () => cancelAnimationFrame(frame);
     }
   }, [opportunity]);
 

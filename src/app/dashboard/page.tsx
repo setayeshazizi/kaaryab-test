@@ -17,7 +17,8 @@ export default function DashboardPage() {
   const stats = getStats();
 
   useEffect(() => {
-    setMounted(true);
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const handleDelete = (id: string, title: string) => {
@@ -92,7 +93,8 @@ export default function DashboardPage() {
         {/* Table */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}transition={{ delay: 0.4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
           className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-lg overflow-x-auto"
         >
           <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Manage Opportunities</h2>

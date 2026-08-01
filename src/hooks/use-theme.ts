@@ -6,9 +6,13 @@ export function useTheme() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      setIsDark(isDarkMode);
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const toggleTheme = useCallback(() => {

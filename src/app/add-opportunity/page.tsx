@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { PlusCircle, Save, ArrowLeft } from 'lucide-react';
+import { PlusCircle, Save } from 'lucide-react';
 import { useOpportunityStore } from '@/store/opportunity-store';
 import { toast } from 'sonner';
 import Link from 'next/link';

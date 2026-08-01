@@ -36,7 +36,8 @@ export default function Navbar() {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setIsOpen(false);
+    const frame = requestAnimationFrame(() => setIsOpen(false));
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   // Close mobile menu on resize to desktop

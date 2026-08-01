@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { useOpportunityStore } from '@/store/opportunity-store';
@@ -9,24 +8,11 @@ import OpportunityCard from '@/components/opportunities/opportunity-card';
 import EmptyState from '@/components/ui/empty-state';
 
 export default function SavedPage() {
-  const [savedOpportunities, setSavedOpportunities] = useState<Opportunity[]>([]);
-  const [mounted, setMounted] = useState(false);
-  
   const opportunities = useOpportunityStore((state) => state.opportunities);
   const savedIds = useOpportunityStore((state) => state.savedIds);
-
-  useEffect(() => {
-    setMounted(true);
-    setSavedOpportunities(opportunities.filter((opp) => savedIds.includes(opp.id)));
-  }, [opportunities, savedIds]);
-
-  if (!mounted) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-slate-950">
-        <div className="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
+  const savedOpportunities: Opportunity[] = opportunities.filter((opp) =>
+    savedIds.includes(opp.id)
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-950">
